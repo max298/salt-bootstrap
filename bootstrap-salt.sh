@@ -6324,7 +6324,11 @@ __set_suse_pkg_repo() {
     if [ "${DISTRO_MAJOR_VERSION}" -gt 2015 ]; then
         DISTRO_REPO="openSUSE_Tumbleweed"
     elif [ "${DISTRO_MAJOR_VERSION}" -ge 42 ] || [ "${DISTRO_MAJOR_VERSION}" -eq 15 ]; then
-        DISTRO_REPO="openSUSE_Leap_${DISTRO_MAJOR_VERSION}.${DISTRO_MINOR_VERSION}"
+        if [ "${DISTRO_MINOR_VERSION}" -ge 3 ]; then
+            DISTRO_REPO="openSUSE_Leap_${DISTRO_MAJOR_VERSION}.2"
+        else
+            DISTRO_REPO="openSUSE_Leap_${DISTRO_MAJOR_VERSION}.${DISTRO_MINOR_VERSION}"
+        fi
     else
         DISTRO_REPO="SLE_${DISTRO_MAJOR_VERSION}_SP${SUSE_PATCHLEVEL}"
     fi
