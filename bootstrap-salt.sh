@@ -6333,13 +6333,9 @@ __set_suse_pkg_repo() {
         DISTRO_REPO="SLE_${DISTRO_MAJOR_VERSION}_SP${SUSE_PATCHLEVEL}"
     fi
 
-    if [ "$_DOWNSTREAM_PKG_REPO" -eq $BS_TRUE ]; then
-        suse_pkg_url_base="https://download.opensuse.org/repositories/systemsmanagement:/saltstack"
-        suse_pkg_url_path="${DISTRO_REPO}/systemsmanagement:saltstack.repo"
-    else
-        suse_pkg_url_base="${HTTP_VAL}://repo.saltproject.io/opensuse"
-        suse_pkg_url_path="${DISTRO_REPO}/systemsmanagement:saltstack:products.repo"
-    fi
+    suse_pkg_url_base="https://download.opensuse.org/repositories/systemsmanagement:/saltstack"
+    suse_pkg_url_path="${DISTRO_REPO}/systemsmanagement:saltstack.repo"
+
     SUSE_PKG_URL="$suse_pkg_url_base/$suse_pkg_url_path"
 }
 
